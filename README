@@ -1,0 +1,7 @@
+This is going to be the first project I develop in Ruby outside of a professional context.  It should be of a scale to define a few classes and a handful of files but nothing too unwieldy.
+
+I deal with perfectionist's anxiety which leads me to feel overwhelmed by the scope of a project / number of items on my to-do list almost as soon as I get started, leading to the inevitable retreat and self-fulfilling prophecy.  A member of the devchix list suggested breaking tasks down into steps and pulling one at a time out of a hat, and that seemed like the perfect scripting opportunity.
+
+I thought I'd reference the Harry Potter sorting hat as this one may deliver a task at random but I want it to be a bit "smarter" than your average hat with some pieces of paper folded up inside it.
+
+I will be starting out by scoping out my project specs in specifications.txt and as I get more comfortable with the conventions of the language will start building it out accordingly.  (Will also adjust my documentation according to those standards as I become more familiar with them.)  Hopefully should only take me a couple days if I don't get distracted by other things!
