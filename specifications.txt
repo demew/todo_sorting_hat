@@ -1,0 +1,93 @@
+"Functional Specifications" etc. for the Todo Sorting Hat
++--------------------------------------------------------+
+
+I intend for this tool to be used on the command line only, with an interactive
+prompt for more "friendly" use (the script talks you through your options) and
+a handful of options that allow the more efficiency-minded user to bypass the
+interaction and get what they need done immediately.
+
+---
+
+OBJECTS
+
+I see two main objects here: Hat and Task.
+Possibly other objects that handle the interaction; need to study more.
+I can see some Hats being a subset of a GrandHat, but I'm not sure how I will
+flesh that out just yet; if it would make sense with an object hierarchy)
+
+DESCRIPTION: Hat
+Hat would be a container class for tasks.
+
+It would have an attribute declaring its function (doubly serving as name?)
+
+Methods probably include: list_tasks, pop_task, add_task, delete_task
+"Popping" a task would remove it from the hat but would keep that task in a
+class variable in case the task needs to be returned to the hat.  "Popping"
+a task would also be the random retrieval of one task from the hat.
+
+If there were a GrandHat class, it would be a class without a function attr.
+So it would probably hold all uncategorized tasks, as well as instances of its
+subclass (Hats).  The methods would be the same but implementation would be
+slightly modified for the GrandHat.
+
+A Hat / GrandHat would probably need to map to some sort of storage; I am not
+yet sure if I'll just use a simple text file or go up a level of complexity.
+
+DESCRIPTION: Task
+A task would be an item on my "to-do" list.  Ideally it is an item that can be
+done in a pomodoro sequence (i.e. 25 minutes) or a couple of those sequences.
+Anything larger than that should probably be broken down more.
+
+Main attributes would be a unique identifier (probably an integer), a string
+description of the task itself, and the task type (atomic, repeating, or
+dependency.  May have better names for these soon).
+
+Task types may make more sense implemented as subclasses since they have
+unique behaviors.
+
+An atomic task is a task that stands on its own and is only done once and then
+forgotten (i.e., "Hang up picture of President Garfield in living room.")
+
+A repeating task is something that you are doing in chunks, so once you complete
+it you don't actually want to remove it from the hat (i.e. "Read 10 pages of the
+X tech book.")
+
+A dependency task is the first in a chain of tasks that can't appear in the hat
+until the prior task in the chain is fulfilled.  So, it's a member of a series
+of tasks (fifo) that aren't "visible" in the hat until the appropriate time. i.e.
+if I broke the implementation of this project into steps, they'd suit dependency.
+
+---
+
+HOW I SEE MYSELF INTERACTING WITH THIS TOOL
+
+First use: The tool recognizes that I have not used it before and creates a
+GrandHat for me. It then asks me to add some tasks.
+
+I may then want to add function-specific Hats with tasks.  Ideally I could do
+this one at a time or by importing a YAML-style document that parses appropriately.
+
+At any point in time I may what to view what is in these hats and delete what
+is no longer relevant (has been completed without use of tool.)
+
+In typical use with a populated hat, I ask the hat to choose a task for me. I can
+specify which of the hats it can choose from, or just choose from the GrandHat. It
+gives me a task, and I go accomplish some things.
+
+I come back later  and pop a new task.  The hat asks me if I've accomplished
+the last item it popped:
+    IF I SAY NO: The last item it popped is returned to the hat.  New task.
+    IF I SAY YES:
+        IF ATOMIC: The last task is deleted, and I get a new task.
+        IF REPEATING: Prompted if I want to continue repeating. If no, task
+            is deleted.  If yes, task is returned to hat.
+        IF DEPENDENCY: The next task in the dependency chain is added to the
+            hat, and the task is deleted.  If the task is the last in the chain,
+            it is deleted.
+
+I may want to be able to add or remove items from a dependency chain and there
+should be some sort of functionality to make this workable.
+
+I may also want to delete entire hats.
+
+Additional levels of complexity: user-based recognition? password protection?
