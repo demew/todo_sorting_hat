@@ -5,3 +5,10 @@ I deal with perfectionist's anxiety which leads me to feel overwhelmed by the sc
 I thought I'd reference the Harry Potter sorting hat as this one may deliver a task at random but I want it to be a bit "smarter" than your average hat with some pieces of paper folded up inside it.
 
 I will be starting out by scoping out my project specs in specifications.txt and as I get more comfortable with the conventions of the language will start building it out accordingly.  (Will also adjust my documentation according to those standards as I become more familiar with them.)  Hopefully should only take me a couple days if I don't get distracted by other things!
+
+-----
+
+Current usage:
+ruby lib/todo_sorting_hat.rb
+
+(No arguments available at this point in time, but they will be supported)
